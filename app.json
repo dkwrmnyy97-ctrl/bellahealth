@@ -1,0 +1,87 @@
+{
+  "expo": {
+    "name": "BellaHealth",
+    "slug": "BellaHealth",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "bellahealth",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/images/icon.png",
+      "bundleIdentifier": "com.isabellafugaro.BellaHealth",
+      "newArchEnabled": true,
+      "usesAppleSignIn": true,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "appExtensions": [
+        {
+          "targetName": "BellaHealthWidget",
+          "bundleIdentifier": "com.isabellafugaro.BellaHealth.widget",
+          "entitlements": {
+            "com.apple.security.application-groups": [
+              "group.com.isabellafugaro.BellaHealth"
+            ]
+          }
+        }
+      ]
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-apple-authentication",
+      "@kingstinct/react-native-healthkit",
+      "./plugins/withHealthKit",
+      "./plugins/withPrivacyManifest",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "BellaHealth uses your photo library to log meals and upload health documents.",
+          "cameraPermission": "BellaHealth uses your camera to photograph meals and health documents."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#C4B7D4",
+          "iosDisplayInForeground": true
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#208AEF",
+          "android": {
+            "image": "./assets/images/splash-icon.png",
+            "imageWidth": 76
+          }
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "your-eas-project-id"
+      }
+    }
+  }
+}
